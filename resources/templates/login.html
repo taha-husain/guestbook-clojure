@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="span12">
+        <h1>Guestbook Login</h1>
+        <form method="POST" action="/login">
+                {% csrf-field %}
+                <p>
+                    Username:
+                    <input class="form-control"
+                           type="text"
+                           name="username"/>
+                </p>
+                <!--{% if errors.name %}
+                <div class="alert alert-danger">{{errors.name|join}}</div>
+                {% endif %}-->
+                <p>
+                    Password:
+                <input class="form-control"
+                       name="password"
+                       type="password" />
+                </p>
+                <!--{% if errors.message %}
+                <div class="alert alert-danger">{{errors.message|join}}</div>
+                {% endif %}-->
+                <input type="submit" class="btn btn-primary" value="login" />
+        </form>
+    </div>
+</div>
+{% endblock %}
