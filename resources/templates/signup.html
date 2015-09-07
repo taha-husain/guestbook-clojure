@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="span12">
+        <h1>Guestbook SignUp</h1>
+        <form method="POST" action="/register" id="signupForm">
+                {% csrf-field %}
+                {{ errors }}
+                <p>
+                    Username:
+                    <input class="form-control"
+                           type="text"
+                           name="username"/>
+                </p>
+                {% if errors.username %}
+                <div class="alert alert-danger">{{errors.username|join}}</div>
+                {% endif %}
+                <p>
+                    Password:
+                <input class="form-control"
+                       name="password"
+                       type="password"
+                       id="password" />
+                </p>
+                {% if errors.password %}
+                <div class="alert alert-danger">{{errors.password|join}}</div>
+                {% endif %}
+                <p>
+                    Confirm Password:
+                <input class="form-control"
+                       name="confirm-password"
+                       type="password"
+                       id="confirm-password"/>
+                </p>
+                {% if errors.confirm-password %}
+                <div class="alert alert-danger">{{errors.confirm-password|join}}</div>
+                {% endif %}
+                <p>
+                    First name:
+                    <input class="form-control"
+                           type="text"
+                           name="first"/>
+                </p>
+                {% if errors.first %}
+                <div class="alert alert-danger">{{errors.first|join}}</div>
+                {% endif %}
+                <p>
+                    Last name:
+                    <input class="form-control"
+                           type="text"
+                           name="last"/>
+                </p>
+                {% if errors.last %}
+                <div class="alert alert-danger">{{errors.last|join}}</div>
+                {% endif %}
+                <input type="submit" class="btn btn-primary" value="register" />
+        </form>
+    </div>
+</div>
+{% endblock %}
